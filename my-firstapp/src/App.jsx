@@ -1,6 +1,10 @@
 import './App.css'
+import { useState } from 'react'
 import Header from './Header'
 function App() {
+  const [count, setCount] = useState(0)
+  const [rcount, setrcount] = useState(100)
+
    const firstname="Himank"
   function lastname(){
     return "Kaushik"
@@ -30,11 +34,21 @@ function App() {
      {sum(10,20)}      <br/>
      {Calculator(200,10,"-")}  <br/>   
      <input type='text' value={firstname}/>
+     <div>
+        <h1>State in react.</h1>
+        <h1>Counter:{count}</h1>
+        <h2>RCounter:{rcount}</h2>
+        <h3>TOTAL:{count + rcount}</h3>
+        <button onClick={() => setCount(count + 1)}>CLICK FOR COUNT INCREMENT</button>
+        <button onClick={() => setrcount(rcount - 1)}>CLICK FOR COUNT DECREMENT</button>
+      </div>
     </div>
     <Header/>
     
      
     </>
+    
+    
 
   )
 }
