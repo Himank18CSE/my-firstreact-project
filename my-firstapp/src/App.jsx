@@ -1,6 +1,8 @@
 import './App.css'
 import { useState } from 'react'
 import Header from './Header'
+import { User } from './User'
+import { MulCondition } from './MulCondition'
 function App() {
   const [count, setCount] = useState(0)
   const [rcount, setrcount] = useState(100)
@@ -26,11 +28,14 @@ function App() {
     return a/b;
    }
   }
+  
   return (
     <>
     <div>
+      <MulCondition/>
+      <User/>
      <h1>JSX WITH CURLY BRACES</h1>
-     <h1>{firstname?firstname:"User Not Found"} {lastname()?lastname():"NO SURMAE FOUND"}</h1>
+     <h1>{firstname || "User Not Found"} {lastname()?lastname():"NO SURMAE FOUND"}</h1>
      {sum(10,20)}      <br/>
      {Calculator(200,10,"-")}  <br/>   
      <input type='text' value={firstname}/>
