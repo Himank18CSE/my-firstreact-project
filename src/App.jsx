@@ -1,13 +1,20 @@
 import './App.css'
 import { useState } from 'react'
-import Header from './Header'
-import { User } from './User'
-import { MulCondition } from './MulCondition'
-import Input from './Input'
-import Checkbox from './Checkbox'
+import Header from './component/Header'
+import { User } from './component/User'
+import { MulCondition } from './component/MulCondition'
+import Input from './component/Input'
+import Checkbox from './component/Checkbox'
+import { Stateuplift } from './component/Stateuplift'
+import { Logoutbtn } from './component/Logoutbtn'
+import { Loginbtn } from './component/Loginbtn'
+import { TimerComponent } from './component/Useeffect/TimerComponent'
+import { ResizeComponent } from './component/Useeffect/ResizeComponent'
 function App() {
   const [count, setCount] = useState(0)
   const [rcount, setrcount] = useState(100)
+  const [name,setname] =useState("")
+  const [Islogin,setlogin]=useState(true)
 
    const firstname="Himank"
   function lastname(){
@@ -34,10 +41,25 @@ function App() {
   return (
     <>
     <div>
+      <ResizeComponent/>
+      <hr/>
+      <h2>useEffect</h2>
+      <TimerComponent />
+      <hr/>
+      {Islogin?<Logoutbtn/>:<Loginbtn/>}
+      <Stateuplift name= {name} setname={setname}/>
+      <p>I'm Inside Parent: {name}</p>
+      <Stateuplift name={name} setname={setname}/>
+      <p>I'm Inside Parent: {name}</p>
+      <hr/>
       <Checkbox/>
+      <hr/>
       <Input/>
+      <hr/>
       <MulCondition/>
+      <hr/>
       <User/>
+      <hr/>
      <h1>JSX WITH CURLY BRACES</h1>
      <h1>{firstname || "User Not Found"} {lastname()?lastname():"NO SURMAE FOUND"}</h1>
      {sum(10,20)}      <br/>
